@@ -9,9 +9,10 @@
 
     <ImageButton
         android:id="@+id/calculateInterpolationBtn"
-        android:layout_width="0dp"
-        android:layout_height="52dp"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/calculate_icon"
@@ -21,8 +22,10 @@
 
     <ImageView
         android:id="@+id/logoImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="56dp"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="2dp"
+        android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/name_logo"
         app:layout_constraintEnd_toEndOf="parent"

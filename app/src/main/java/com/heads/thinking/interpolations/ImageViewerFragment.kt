@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.heads.thinking.interpolations.ui.main.MainViewModel
+import com.jjoe64.graphview.LegendRenderer
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.Series
 import kotlinx.android.synthetic.main.fragment_image_viewer.*
@@ -52,9 +53,14 @@ class ImageViewerFragment : Fragment(), View.OnClickListener {
             updateGraph(graphsSeries)
         }
         fullScreenGraphView.legendRenderer.isVisible = true
+        fullScreenGraphView.legendRenderer.align = LegendRenderer.LegendAlign.TOP;
         fullScreenGraphView.legendRenderer.width = 300
+
+        fullScreenGraphView.viewport.isYAxisBoundsManual = true
+        fullScreenGraphView.viewport.isXAxisBoundsManual = true
         fullScreenGraphView.viewport.isScrollable = true
         fullScreenGraphView.viewport.isScalable = true
+        fullScreenGraphView.viewport.setScalableY(true)
 
         backBtn.setOnClickListener(this)
     }

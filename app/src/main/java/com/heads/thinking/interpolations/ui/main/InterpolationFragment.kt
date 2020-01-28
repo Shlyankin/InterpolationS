@@ -22,6 +22,7 @@ import kotlin.math.absoluteValue
 import android.graphics.DashPathEffect
 import android.graphics.Paint
 import com.jjoe64.graphview.GraphView
+import com.jjoe64.graphview.LegendRenderer
 import com.jjoe64.graphview.series.Series
 
 
@@ -67,6 +68,8 @@ class InterpolationFragment : Fragment(), View.OnClickListener {
             graph2.legendRenderer.isVisible = true
             graph1.legendRenderer.width = 300
             graph2.legendRenderer.width = 300
+            graph1.legendRenderer.align = LegendRenderer.LegendAlign.TOP;
+            graph2.legendRenderer.align = LegendRenderer.LegendAlign.TOP;
             graph1.viewport.isScalable = true
             graph1.viewport.isScrollable = true
             graph2.viewport.isScalable = true
@@ -200,7 +203,7 @@ class InterpolationFragment : Fragment(), View.OnClickListener {
                 val expr = args[0] as (x: Double) -> Double
                 val leftInterval = args[1] as Double
                 val rightInterval = args[2] as Double
-                val numberOfPoint = 250
+                val numberOfPoint = 300
                 val plotStep = (rightInterval - leftInterval)/numberOfPoint
                 return Array<DataPoint>(numberOfPoint, {
                     DataPoint(leftInterval + it * plotStep, expr(leftInterval + it * plotStep))
@@ -246,7 +249,7 @@ class InterpolationFragment : Fragment(), View.OnClickListener {
                 val interpolation = args[1] as (x: Double) -> Double
                 val leftInterval = args[2] as Double
                 val rightInterval = args[3] as Double
-                val numberOfPoint = 250
+                val numberOfPoint = 300
                 val plotStep = (rightInterval - leftInterval)/numberOfPoint
                 return Array<DataPoint>(numberOfPoint, {
                     DataPoint(leftInterval + it * plotStep, (interpolation(leftInterval + it * plotStep)
